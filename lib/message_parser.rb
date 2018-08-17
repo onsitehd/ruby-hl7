@@ -38,7 +38,7 @@ module HL7::MessageBatchParser
   private
 
   def clean_batch_for_jruby(batch)
-    batch.gsub("\n", "\r") if batch.include?("\n")
+    batch.include?("\n") ? batch.gsub("\n", "\r") : batch
   end
 end
 
